@@ -21,3 +21,46 @@
 * Push ขึ้นไปที่ Docker Hub
 
            docker push nattiya18/sparkjava:sparkjava
+           
+           
+## Add Stack ใน Portainer
+
+
+
+![image](https://user-images.githubusercontent.com/119166253/224613008-322aea6f-f1a2-431d-9e64-5dcab533d240.png)
+
+           
+ ## Create stack deploy
+ * Create file docker=coompose.yml in swarm path
+```
+
+         version: '3.3' 
+                  services:
+                    web: 
+                      image: nattiya18/sparkjava:sparkjava
+                      networks: 
+                      - webproxy
+                      logging:
+                        driver: json-file
+                      container_name: spcn16java
+                      deploy: 
+                        replicas: 1 
+                        labels: 
+                          - traefik.docker.network=webproxy
+                          - traefik.enable=true
+                          - traefik.http.routers.spcn16java-https.entrypoints=websecure 
+                          - traefik.http.routers.spcn16java-https.rule=Host("spcn16java.xops.ipv9.xyz")
+                          - traefik.http.routers.spcn16java-https.tls.certresolver=default
+                          - traefik.http.services.spcn16java.loadbalancer.server.port=8080
+                        resources: 
+                          reservations: 
+                            cpus: '0.1'
+                            memory: 10M
+                          limits: 
+                            cpus: '0.4'
+                            memory: 100M
+                  networks: 
+                    webproxy: 
+                      external: true
+                      
+ 
