@@ -64,3 +64,15 @@
                       external: true
                       
  
+                     
+![image](https://user-images.githubusercontent.com/119166253/224612644-0e15ded9-2cfa-4fc8-83b6-67229dbd0fdb.png)
+
+
+
+* stack de ploy on portainer
+
+* go to view result
+```
+-[https://spcn16java.xops.ipv9.xyz/]
+
+![image](https://user-images.githubusercontent.com/119166253/224612793-691ba9ea-052f-444b-a7f7-fe02cf0d293b.png)
